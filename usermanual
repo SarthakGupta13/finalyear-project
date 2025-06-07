@@ -1,0 +1,84 @@
+ User Manual
+Touchless Heartbeat Measurement Using Facial Video
+📌 Project Overview
+This system enables real-time, non-contact heart rate monitoring using a webcam. It uses facial detection to analyze video frames and estimate heart rate, displaying the data in a user-friendly interface. The project includes both a Tkinter desktop GUI and a Flask web application, with integrated buzzer alerts and MQTT communication for IoT use.
+
+⚙️ System Requirements
+Operating System: Windows (required for winsound)
+
+Python Version: 3.7 or higher
+
+Dependencies:
+Install using:
+
+bash
+Copy
+Edit
+pip install opencv-python numpy matplotlib paho-mqtt Pillow flask
+Hardware:
+
+Webcam (integrated or external)
+
+Stable internet connection (for MQTT)
+
+📂 Project Files
+File Name	Description
+app.py	Flask web app for real-time video and heart rate streaming.
+touchless_hB3.py	Tkinter GUI with pulse graph, alerts, and MQTT publishing.
+templates/	Contains HTML templates for the Flask app.
+TLHB.png	Sample image for project documentation.
+
+🚀 How to Use
+✅ Option 1: Desktop GUI (Tkinter)
+Run the GUI file:
+
+bash
+Copy
+Edit
+python touchless_hB3.py
+A window will open with:
+
+Live camera feed
+
+Start/Stop buttons
+
+Heartbeat data graph
+
+Color-coded alerts
+
+Press Start to begin monitoring.
+The system will:
+
+Detect your face
+
+Estimate heart rate
+
+Trigger a buzzer if BPM > 90
+
+Send BPM and status via MQTT
+
+Press Stop to end monitoring.
+
+🌐 Option 2: Web App (Flask)
+Run the web app:
+
+bash
+Copy
+Edit
+python app.py
+Open your browser and go to:
+http://127.0.0.1:5000/
+
+Navigate through pages:
+
+/ → Home
+
+/detection → Live camera with heart rate
+
+/contact → Contact info (static page)
+
+Use routes:
+
+/start_detection – Starts the webcam
+
+/stop_detection – Stops the webcam
